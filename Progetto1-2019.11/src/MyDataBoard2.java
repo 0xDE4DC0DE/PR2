@@ -13,7 +13,8 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
         this.name = name;
     }
 
-
+    //In questa implementazione non viene utilizzata la indexOf, la tengo solo perché serve nell'altra implementazione
+    //  per non scrivere una nuova interfaccia
     public int indexOf(String category) {
         if (category==null) throw new NullPointerException();
         int i=0;
@@ -62,7 +63,7 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
         if (!this.passw.equals(passw)) throw new WrongPasswordException();
         E x = null;
         for (Category<E> cat: categories.values()) {
-            if (cat.contains(dato)) x=dato;
+            if (cat.contains(dato)) x=cat.getDato(dato);
         }
         if (x==null) throw new ItemNotListedException();
         return x;
