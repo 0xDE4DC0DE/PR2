@@ -6,7 +6,7 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
     private String name;
     final private HashMap<String, Category<E>> categories;
 
-    public MyDataBoard2(String passw, String name) {
+    public MyDataBoard2(String name, String passw) {
         if (name==null || passw==null) throw new NullPointerException();
         categories = new HashMap<>();
         this.passw = passw;

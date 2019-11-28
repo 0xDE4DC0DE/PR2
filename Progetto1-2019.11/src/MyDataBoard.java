@@ -6,10 +6,10 @@ public class MyDataBoard<E extends Data> implements DataBoard<E> {
     private String name;
     final private Vector<Category<E>> categories;
 
-    public MyDataBoard(String nome, String passw) {
-        if (nome==null || passw==null) throw new NullPointerException();
+    public MyDataBoard(String name, String passw) {
+        if (name==null || passw==null) throw new NullPointerException();
         categories = new Vector<>();
-        this.name=nome;
+        this.name=name;
         this.passw=passw;
     }
 
@@ -92,7 +92,7 @@ public class MyDataBoard<E extends Data> implements DataBoard<E> {
         while (i<categories.size()) {
             if (categories.get(i).contains(dato)) {
                 if (!categories.get(i).containsFriend(friend)) throw new FriendWithoutPermissionException();
-                categories.get(i).getDato(dato).addLike(friend);
+                categories.get(i).returnDato(dato).addLike(friend);
                 esiste=1;
             }
             i++;

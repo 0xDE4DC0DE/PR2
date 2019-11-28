@@ -4,7 +4,7 @@ public class MyData <E> implements Data<E> {
 
     private int like;
     private String name;
-    final private Vector<String> friends;
+    private Vector<String> friends;
 
     public MyData (String name) {
         if (name==null) throw new NullPointerException();
