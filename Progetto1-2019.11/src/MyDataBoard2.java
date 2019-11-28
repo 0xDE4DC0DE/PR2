@@ -16,13 +16,7 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
     //In questa implementazione non viene utilizzata la indexOf, la tengo solo perché serve nell'altra implementazione
     //  per non scrivere una nuova interfaccia
     public int indexOf(String category) {
-        if (category==null) throw new NullPointerException();
-        int i=0;
-        while (i<categories.size()) {
-            if (categories.get(category).getName().equals(category)) return i;
-            i++;
-        }
-        return -1;
+        throw new UnsupportedOperationException("Non é possibile usare questo metodo in DataBoard 2");
     }
 
     public void createCategory (String category, String passw) throws WrongPasswordException, DuplicateEntryException {
@@ -99,15 +93,9 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
         if (passw==null || category==null) throw new NullPointerException();
         if (!this.passw.equals(passw)) throw new WrongPasswordException();
         if (!categories.containsKey(category)) throw new CategoryNotFoundException();
-        List<E> lista = new ArrayList<>();
-        for (Category<E> cat: categories.values()) {
-            if (cat.getName().equals(category)) {
-                lista=cat.listData();
-                break;
-            }
-        }
+        List<E> lista = categories.get(category).listData();
         if (lista.size()==0) throw new EmptyStackException();
-        else return lista;
+        return lista;
     }
 
     public Iterator<E> getIterator (String passw) throws WrongPasswordException {

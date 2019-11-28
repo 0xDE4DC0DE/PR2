@@ -3,11 +3,11 @@ import java.util.Iterator;
 public class DataBoardTest {
     public static void main(String[] args) {
 
-        DataBoard<Data> databoardfede = new MyDataBoard<>("federico", "fede00");
+        //DataBoard<Data> databoardfede = new MyDataBoard<>("federico", "fede00");
         //Per usare la prima implementazione basta commentare il secondo assegnamento, altrimenti commentare il primo
-        //DataBoard<Data> databoardfede = new MyDataBoard2<>("federico", "fede00");
-        System.out.println("");
-        System.out.println("PROVO A CREARE UNA CATEGORIA SBAGLIANDO PASSWORD");
+        DataBoard<Data> databoardfede = new MyDataBoard2<>("federico", "fede00");
+
+        System.out.println("\nPROVO A CREARE UNA CATEGORIA SBAGLIANDO PASSWORD");
         try {
             databoardfede.createCategory("foto", "fede");
         } catch (DuplicateEntryException | WrongPasswordException err) {
@@ -28,8 +28,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("CREO UN'ALTRA CATEGORIA DA RIMUOVERE");
+        System.out.println("\nCREO UN'ALTRA CATEGORIA DA RIMUOVERE");
         try {
             databoardfede.createCategory("video", "fede00");
         } catch (WrongPasswordException | DuplicateEntryException err) {
@@ -50,8 +49,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO AD AGGIUNGERE UN AMICO SBAGLIANDO PASSWORD");
+        System.out.println("\nPROVO AD AGGIUNGERE UN AMICO SBAGLIANDO PASSWORD");
         try {
             databoardfede.addFriend("foto", "fede", "leonardo");
         } catch (WrongPasswordException | CategoryNotFoundException | DuplicateEntryException err) {
@@ -79,8 +77,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("AGGIUNGO UN AMICO DA RIMUOVERE");
+        System.out.println("\nAGGIUNGO UN AMICO DA RIMUOVERE");
         try {
             databoardfede.addFriend("foto", "fede00", "pippo");
         } catch (WrongPasswordException | CategoryNotFoundException | DuplicateEntryException err) {
@@ -101,8 +98,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("CREO UN DATO");
+        System.out.println("\nCREO UN DATO");
         Data<Data> fotoalmare = new MyData<>("fotoalmare");
         System.out.println("PROVO AD AGGIUNGERE UN DATO SBAGLIANDO PASSWORD");
         try {
@@ -125,8 +121,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO A PRENDERE IL DATO CHE HO APPENA AGGIUNTO SBAGLIANDO PASSWORD");
+        System.out.println("\nPROVO A PRENDERE IL DATO CHE HO APPENA AGGIUNTO SBAGLIANDO PASSWORD");
         try {
             databoardfede.get("fede", fotoalmare);
         } catch (WrongPasswordException | ItemNotListedException err) {
@@ -149,8 +144,7 @@ public class DataBoardTest {
         }
 
 
-        System.out.println("");
-        System.out.println("AGGIUNGO UN DATO DA RIMUOVERE");
+        System.out.println("\nAGGIUNGO UN DATO DA RIMUOVERE");
         try {
             databoardfede.put("fede00", selfie, "foto");
         } catch (WrongPasswordException | CategoryNotFoundException err) {
@@ -179,8 +173,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO A METTERE LIKE A UN DATO CHE NON ESISTE");
+        System.out.println("\nPROVO A METTERE LIKE A UN DATO CHE NON ESISTE");
         try {
             databoardfede.insertLike("leonardo", tramonto);
         } catch (FriendWithoutPermissionException | FriendAlreadyLikedException | ItemNotListedException err) {
@@ -208,8 +201,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO A PRENDERE LA LISTA DI TUTTI I DATI INSERITI IN UNA CATEGORIA SBAGLIANDO PASSWORD");
+        System.out.println("\nPROVO A PRENDERE LA LISTA DI TUTTI I DATI INSERITI IN UNA CATEGORIA SBAGLIANDO PASSWORD");
         try {
             databoardfede.getDataCategory("fede", "foto");
         } catch (WrongPasswordException | CategoryNotFoundException err) {
@@ -230,8 +222,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO A PRENDERE LA LISTA ORDINATA PER LIKE DI TUTTI I DATI SBAGLIANDO PASSWORD");
+        System.out.println("\nPROVO A PRENDERE LA LISTA ORDINATA PER LIKE DI TUTTI I DATI SBAGLIANDO PASSWORD");
         try {
             databoardfede.getIterator("fede");
         } catch (WrongPasswordException err) {
@@ -245,8 +236,7 @@ public class DataBoardTest {
             err.printStackTrace();
         }
 
-        System.out.println("");
-        System.out.println("PROVO A PRENDERE LA LISTA DI TUTTI I DATI CONDIVISI CON UN AMICO CHE NON HO INSERITO");
+        System.out.println("\nPROVO A PRENDERE LA LISTA DI TUTTI I DATI CONDIVISI CON UN AMICO CHE NON HO INSERITO");
         try {
             databoardfede.getFriendIterator("pippo");
         } catch (FriendNeverListedException err) {
@@ -268,8 +258,7 @@ public class DataBoardTest {
             dato.Display();
         }
 
-        System.out.println("");
-        System.out.println("FACCIO LA DISPLAY DEL DATO CHE HO INSERITO ALL'INIZIO");
+        System.out.println("\nFACCIO LA DISPLAY DEL DATO CHE HO INSERITO ALL'INIZIO");
         fotoalmare.Display();
 
     }
