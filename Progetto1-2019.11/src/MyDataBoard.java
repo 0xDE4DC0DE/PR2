@@ -75,14 +75,15 @@ public class MyDataBoard<E extends Data> implements DataBoard<E> {
         if (dato==null || passw==null) throw new NullPointerException();
         if (!this.passw.equals(passw)) throw new WrongPasswordException();
         int i=0;
+        E dato1 = null;
         while (i<categories.size()) {
             if (categories.get(i).contains(dato)) {
-                E dato1 = categories.get(i).getDato(dato);
+                dato1 = categories.get(i).getDato(dato);
                 categories.get(i).removeDato(dato);
-                return dato1;
             } else i++;
         }
-        throw new ItemNotListedException();
+        if (dato1==null) throw new ItemNotListedException();
+        return dato1;
     }
 
     public void insertLike (String friend, E dato) throws FriendAlreadyLikedException, ItemNotListedException, FriendWithoutPermissionException {
@@ -125,14 +126,17 @@ public class MyDataBoard<E extends Data> implements DataBoard<E> {
     public Iterator<E> getFriendIterator (String friend) throws FriendNeverListedException {
         if (friend ==null) throw new NullPointerException();
         int i = 0;
+        int esiste = 0;
         List<E> list = new ArrayList<>();
         while (i < categories.size()) {
             if (categories.get(i).containsFriend(friend)) {
                 list.addAll(categories.get(i).listData());
+                esiste=1;
             }
             i++;
         }
-        if (list.size()==0) throw new FriendNeverListedException();
+        if (esiste==0) throw new FriendNeverListedException();
+        if (list.size()==0) throw new EmptyStackException();
         return Collections.unmodifiableList(list).iterator();
     }
 }

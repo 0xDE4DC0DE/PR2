@@ -55,25 +55,26 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
     public E get (String passw, E dato) throws WrongPasswordException, ItemNotListedException {
         if (dato==null || passw==null) throw new NullPointerException();
         if (!this.passw.equals(passw)) throw new WrongPasswordException();
-        E x = null;
         for (Category<E> cat: categories.values()) {
-            if (cat.contains(dato)) x=cat.getDato(dato);
+            if (cat.contains(dato)) {
+                return cat.getDato(dato);
+            }
         }
-        if (x==null) throw new ItemNotListedException();
-        return x;
+        throw new ItemNotListedException();
     }
 
     public E remove (String passw, E dato) throws WrongPasswordException, ItemNotListedException {
         if (dato==null || passw==null) throw new NullPointerException();
         if (!this.passw.equals(passw)) throw new WrongPasswordException();
+        E dato1 = null;
         for (Category<E> cat: categories.values()) {
             if (cat.contains(dato)) {
-                E dato1 = cat.getDato(dato);
+                dato1 = cat.getDato(dato);
                 cat.removeDato(dato);
-                return dato1;
             }
         }
-        throw new ItemNotListedException();
+        if (dato1==null) throw new ItemNotListedException();
+        return dato1;
     }
 
     public void insertLike (String friend, E dato) throws FriendAlreadyLikedException, ItemNotListedException, FriendWithoutPermissionException {
