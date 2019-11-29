@@ -162,6 +162,8 @@ public interface DataBoard <E extends Data> {
 
 
     /**
+     * Restituisce nella prima implementazione l'indice della categoria passata come riferimento
+     * Nella seconda implementazione @throws UnsoppurtedOperationException ogni volta che viene invocato
      * @param category!=null
      * @return i with category_i=category
      * @throws NullPointerException if category==null
