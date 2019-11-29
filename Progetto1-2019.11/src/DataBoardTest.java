@@ -3,9 +3,9 @@ import java.util.Iterator;
 public class DataBoardTest {
     public static void main(String[] args) {
 
-        //DataBoard<Data> databoardfede = new MyDataBoard<>("federico", "fede00");
+        DataBoard<Data> databoardfede = new MyDataBoard<>("federico", "fede00");
         //Per usare la prima implementazione basta commentare il secondo assegnamento, altrimenti commentare il primo
-        DataBoard<Data> databoardfede = new MyDataBoard2<>("federico", "fede00");
+        //DataBoard<Data> databoardfede = new MyDataBoard2<>("federico", "fede00");
 
         System.out.println("\nPROVO A CREARE UNA CATEGORIA SBAGLIANDO PASSWORD");
         try {

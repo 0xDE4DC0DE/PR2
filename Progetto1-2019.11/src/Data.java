@@ -25,7 +25,7 @@ public interface Data<E> {
     /**
      * Aggiunge un like e il nome dell'amico che lo ha messo
      * @param friend!=null
-     * @throws IllegalArgumentException if friend==null
+     * @throws NullPointerException if friend==null
      * @throws FriendAlreadyLikedException if friends.contains(friend)
      * @modifies like && friends
      * @effects like_post = like_pre + 1
@@ -41,7 +41,7 @@ public interface Data<E> {
     public String getName ();
 
     /**
-     * Setta i like del dato a quelli specificati [assati come paramentro
+     * Setta i like del dato a quelli specificati passati come paramentro
      * @param like
      */
     public void setLike(int like);

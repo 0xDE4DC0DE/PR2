@@ -13,8 +13,8 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
         this.name = name;
     }
 
-    //In questa implementazione non viene utilizzata la indexOf, la tengo solo perché serve nell'altra implementazione
-    //  per non scrivere una nuova interfaccia
+    //In questa implementazione la indexOf lancia solamente un'eccezione oni volta che viene chiamata, ma la tengo
+    // solo perché serve nell'altra implementazione e per non scrivere una nuova interfaccia
     public int indexOf(String category) {
         throw new UnsupportedOperationException("Non é possibile usare questo metodo in DataBoard 2");
     }
@@ -113,12 +113,15 @@ public class MyDataBoard2<E extends Data> implements DataBoard<E> {
     public Iterator<E> getFriendIterator (String friend) throws FriendNeverListedException {
         if (friend ==null) throw new NullPointerException();
         List<E> list = new ArrayList<>();
+        int esiste=0;
         for (Category<E> cat: categories.values()) {
             if (cat.containsFriend(friend)) {
                 list.addAll(cat.listData());
+                esiste=1;
             }
         }
-        if (list.size()==0) throw new FriendNeverListedException();
+        if (esiste==0) throw new FriendNeverListedException();
+        if (list.size()==0) throw new EmptyStackException();
         return Collections.unmodifiableList(list).iterator();
     }
 }
