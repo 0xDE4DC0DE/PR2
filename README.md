@@ -6,6 +6,6 @@ Projects for Programming 2 course held by Prof. Ferrari
 
 *Second* *Project* -> Small interpreter with dictionaries written in OCaml
 
-:octocat: "Profilo GitHub" [1]
+:octocat: [Profilo GitHub]
 
-[1]: https://github.com/0xDE4DC0DE/
+[Profilo GitHub]: https://github.com/0xDE4DC0DE/
