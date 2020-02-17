@@ -1,4 +1,4 @@
-# PROGRAMMAZIONE 2
+# PROGETTI PR2
 
 Projects for Programming 2 course held by Prof. Ferrari
 
