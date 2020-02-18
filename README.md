@@ -2,9 +2,9 @@
 
 Projects for Programming 2 course held by Prof. Ferrari
 
-*First* *Project* -> Very small social network written in Java 
+*First Project* -> Very small social network written in Java 
 
-*Second* *Project* -> Functional interpreter with dictionaries written in OCaml
+*Second Project* -> Functional interpreter with dictionaries written in OCaml
 
 :octocat: [Profilo GitHub]
 
