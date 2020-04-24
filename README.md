@@ -8,4 +8,4 @@ Projects for Programming 2 course held by Prof. Ferrari
 
 :octocat: [Profilo GitHub]
 
-[Profilo GitHub]: https://github.com/0xDE4DC0DE/
+[Profilo GitHub]: https://github.com/0xfederama/
